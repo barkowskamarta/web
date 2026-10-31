@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM + Funkcje</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1e1e2e;
+            color: #cdd6f4;
+            padding: 30px;
+            line-height: 1.6;
+        }
+        h1 { color: #a6e3a1; border-bottom: 2px solid #a6e3a1; padding-bottom: 10px; }
+        h2 { color: #89b4fa; }
+        .box {
+            background-color: #313244;
+            border-left: 5px solid #f9e2af;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        code { background-color: #45475a; padding: 2px 6px; border-radius: 4px; color: #f5c2e7; }
+
+        #game-world {
+            background-color: #181825;
+            border: 2px dashed #6c7086;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            min-height: 150px;
+        }
+        .alert-banner {
+            background-color: #f38ba8;
+            color: #11111b;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .action-btn {
+            background-color: #89b4fa;
+            color: #11111b;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .btn-premium {
+            background-color: #fab387;
+            border: 2px solid #f9e2af;
+            box-shadow: 0 0 10px #fab387;
+        }
+        .hero-card {
+            background-color: #cba6f7;
+            color: #11111b;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .hero-card h3 { margin-top: 0; color: #11111b; }
+    </style>
+</head>
+<body>
+
+    <h1>Funkcje generujące elementy HTML (DOM)</h1>
+
+    <div class="box">
+        <h2>System Alertów (Klasyczna funkcja)</h2>
+        <p>Stwórz funkcję, która generuje na stronie czerwone paski ostrzegawcze z dowolnym tekstem.</p>
+    </div>
+
+    <div class="box">
+        <h2>Fabryka Przycisków Menu (Wyrażenie funkcyjne + IF)</h2>
+        <p>Napisz funkcję przypisaną do zmiennej, która tworzy przyciski. Jeśli przycisk ma być typu <i>premium</i>, powinien otrzymać dodatkowy, świecący styl CSS.</p>
+    </div>
+
+    <div class="box">
+        <h2>Kreator Kart Bohaterów (Funkcja Strzałkowa + innerHTML)</h2>
+        <p>Użyj funkcji strzałkowej oraz backticki, aby wygenerować kompletną wizytówkę postaci RPG.</p>
+    </div>
+
+    <h2>Generator Świata Gry</h2>
+    <div id="game-world">
+        </div>
+
+    <script>
+        // Złapaliśmy rodzica
+        const worldContainer = document.querySelector("#game-world");
+
+
+        // SYSTEM ALERTÓW(Klasyczna funkcja)
+        // Zadanie:
+        // 1. Zadeklaruj funkcję o nazwie: dodajAlert
+        // 2. Funkcja powinna przyjmować jeden parametr: tekstOstrzezenia
+        // 3. Wewnątrz funkcji:
+        // - Stwórz nowy element typu 'div' za pomocą document.createElement
+        // - Dodaj do tego elementu klasę: "alert-banner" (użyj classList.add)
+        // - Wpisz przekazany w parametrze tekst do środka elementu za pomocą textContent
+        // - Wepnij gotowy element do kontenera głównego za pomocą: worldContainer.appendChild(twójElement)
+
+        function dodajAlert(tekstOstrzezenia){
+            const alert = document.createElement("div");
+            alert.classList.add("alert-banner");
+            alert.textContent = tekstOstrzezenia;
+            worldContainer.appendChild(alert);
+        }
+
+        dodajAlert("Uwaga!")
+        
+        // FABRYKA PRZYCISKÓW MENU (Wyrażenie funkcyjne + IF)
+        // Zadanie:
+        // 1. Stwórz wyrażenie funkcyjne – przypisz funkcję do zmiennej: stworzPrzyciskAkcji
+        // 2. Funkcja musi przyjmować dwa parametry: napisNaPrzycisku oraz czyPremium (wartość true/false)
+        // 3. Wewnątrz funkcji:
+        // - Stwórz element 'button'
+        // - Wpisz do niego tekst przez textContent
+        // - Dodaj mu podstawową klasę: "action-btn"
+        // - Napisz instrukcję 'if': Jeśli parametr czyPremium jest równy true, dodaj do przycisku DRUGĄ klasę: "btn-premium"
+        // - Wepnij gotowy przycisk na koniec worldContainer.
+
+        // Przykład sprawdzenia programu
+        // stworzPrzyciskAkcji("Fireball", true);
+
+
+        let stworzPrzyciskAkcji = function(napisNaPrzycisku, czyPremium){
+            const przycisk = document.createElement("button");
+            przycisk.textContent = napisNaPrzycisku;
+            przycisk.classList.add("action-btn");
+
+            if(czyPremium == true){
+                przycisk.classList.add("btn-premium")
+            }
+
+            worldContainer.appendChild(przycisk);
+        }
+
+        stworzPrzyciskAkcji("Fireball", true);
+        stworzPrzyciskAkcji("Atak podstawowy", false);
+
+
+        // KREATOR KART BOHATERÓW (Funkcja Strzałkowa + innerHTML)
+        // Zadanie:
+        // 1. Stwórz funkcję strzałkową o nazwie: generujKarteBohatera
+        // 2. Funkcja powinna przyjmować trzy parametry: imie, klasaPostaci, poziom
+        // 3. Wewnątrz funkcji:
+        // - Stwórz element 'div'
+        // - Dodaj mu klasę: "hero-card"
+        // - Użyj innerHTML oraz BACKTICKÓW, aby wstawić do środka strukturę:
+            //     
+            //        <h3>Nick: ...</h3>
+            //        <p>Klasa: ...</p>
+            //        <p>Poziom doświadczenia: ... Lvl</p>
+            //     
+            //     Wstaw odpowiednie zmienne z parametrów w miejsca kropek za pomocą ${}.
+            //   - Wepnij kartę do worldContainer.
+           
+        // Przykład sprawdzenia czy kod działa
+        // generujKarteBohatera("Gandalf2137", "Czarodziej", 67);
+
+        const generujKarteBohatera = (imie, klasaPostaci, poziom) => {
+            const karta = document.createElement("div");
+            karta.classList.add("hero-card");
+
+            karta.innerHTML = 
+            `<h3>Nick: ${imie} </h3>
+            <p>Klasa: ${klasaPostaci} </p>
+            <p>Poziom doświadczenia: ${poziom} Lvl </p>`;
+
+            worldContainer.appendChild(karta);
+        }
+
+        generujKarteBohatera("Gandalf2137", "Czarodziej", 67);
+    </script>
+</body>
+</html>

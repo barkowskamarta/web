@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funkcje i Warunki</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1a1a24;
+            color: #e0e0e6;
+            padding: 30px;
+            line-height: 1.6;
+        }
+        h1 { color: #ff79c6; border-bottom: 2px solid #ff79c6; padding-bottom: 10px; }
+        h2 { color: #8be9fd; }
+        .box {
+            background-color: #282a36;
+            border-left: 5px solid #ffb86c;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        code { background-color: #44475a; padding: 2px 6px; border-radius: 4px; color: #f1fa8c; }
+    </style>
+</head>
+<body>
+
+    <h1>Funkcje + Instrukcje IF</h1>
+
+    <div class="box">
+        <h2>Miarka Rollercoastera (Klasyczna Deklaracja + IF)</h2>
+        <p>Napisz tradycyjną funkcję, która decyduje, czy dziecko jest wystarczająco wysokie, by wejść na wielką kolejkę górską.</p>
+    </div>
+
+    <div class="box">
+        <h2>Kasjer w Kinie (Wyrażenie Funkcyjne + IF/ELSE + RETURN)</h2>
+        <p>Stwórz funkcję przypisaną do zmiennej, która oblicza cenę biletu w zależności od tego, czy ktoś kupuje bilet ulgowy czy normalny.</p>
+    </div>
+
+    <div class="box">
+        <h2>Generator Walki RPG (Funkcja Strzałkowa + IF + RETURN)</h2>
+        <p>Użyj funkcji strzałkowej <code>=&gt;</code>, aby ocenić, czy cios bohatera pokonał potwora.</p>
+    </div>
+
+    <script>
+        
+        //    Zadanie 1
+        //    1. Zadeklaruj klasyczną funkcję o nazwie: Rollercoaster
+        //    2. Funkcja powinna przyjmować jeden parametr: wzrost (liczba w cm)
+        //    3. Wewnątrz funkcji użyj instrukcji 'if':
+        //       - Jeśli wzrost jest WIĘKSZY LUB RÓWNY 140, wypisz w konsoli:
+        //         "Możesz wejść na kolejkę"
+        //       - W przeciwnym wypadku (else), wypisz:
+        //         "Jesteś za niski!"
+        //     4. Sprawdź działanie kodu 
+
+        function Rollercoaster(wzrost){
+            if(wzrost >= 140){
+                console.log("Możesz wejść na kolejkę")
+            } else {
+                console.log("Jesteś za niski!")
+            }
+        }
+
+        Rollercoaster(130);
+        Rollercoaster(170);
+        Rollercoaster(140);
+         
+        //    Zadanie 2
+        //    1. Stwórz wyrażenie funkcyjne: utwórz zmienną 'obliczCeneBiletu' i przypisz do niej funkcję anonimową.
+        //    2. Funkcja musi przyjmować jeden parametr tekstowy: typBiletu (np. "ulgowy" lub "normalny")
+        //    3. Wewnątrz funkcji sprawdź warunek za pomocą 'if':
+        //       - Jeśli typBiletu to "ulgowy", funkcja ma ZWRÓCIĆ (return) liczbę: 15
+        //       - Jeśli typBiletu to "normalny", funkcja ma ZWRÓCIĆ (return) liczbę: 25
+        //       - W każdym innym przypadku (błędny wpis) funkcja ma zwrócić tekst: "Nieznany typ biletu"
+
+        let obliczCeneBiletu = function (typBiletu){
+            if (typBiletu == "ulgowy"){
+                return 15;
+            } else if (typBiletu == "normalny"){
+                return 25;
+            } else {
+                return "Nieznany typ biletu";
+            }
+        }
+
+        // ODKOMENTUJ LINIE PONIŻEJ, ABY SPRAWDZIĆ CZY RETURN DZIAŁA POPRAWNIE:
+        // Jeżeli zrobiłeś/aś inne zmienne dostosuj te poniżej do swojego kodu!
+        let biletDziecka = obliczCeneBiletu("ulgowy");
+        console.log(`Cena biletu dla dziecka: ${biletDziecka} PLN`);
+        
+        let biletDoroslego = obliczCeneBiletu("normalny");
+        console.log(`Cena biletu dla dorosłego: ${biletDoroslego} PLN`);
+
+        // Zadanie 3
+        // 1. Stwórz funkcję strzałkową o nazwie: czyPotworPokonany
+        // 2. Funkcja powinna przyjmować dwa parametry: silaCiosu oraz punktyZyciaPotwora
+        // 3. Wewnątrz funkcji dodaj warunek 'if':
+        //     - Jeśli silaCiosu jest WIĘKSZA LUB RÓWNA punktyZyciaPotwora : zwróć (return) wartość logiczną: true (potwór pokonany!)
+        //     - W przeciwnym wypadku zwróć wartość logiczną: false (potwór wciąż żyje!)
+
+        // 4. SPrawdź na końcu działanie kodu 
+
+        const czyPotworPokonany = (silaCiosu, punktyZyciaPotwora) => {
+            if (silaCiosu >= punktyZyciaPotwora){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        console.log(czyPotworPokonany(30, 15));
+        console.log(czyPotworPokonany(25, 40));
+        console.log(czyPotworPokonany(10, 10));
+
+    </script>
+</body>
+</html>

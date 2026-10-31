@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ćwiczenie z Rakietą</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #1e1e2e;
+            color: #cdd6f4;
+            padding: 30px;
+            line-height: 1.6;
+        }
+        h1 { color: #f5c2e7; border-bottom: 2px solid #f5c2e7; padding-bottom: 10px; }
+        h2 { color: #89b4fa; }
+        .box {
+            background-color: #313244;
+            border-left: 5px solid #a6e3a1;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        code { background-color: #45475a; padding: 2px 6px; border-radius: 4px; color: #f9e2af; }
+    </style>
+</head>
+<body>
+
+    <h1>Pętle + Warunki - Przypomnienie</h1>
+
+    <div class="box">
+        <h2>Misja 1: Fabryka Robotów (Pętla + IF)</h2>
+        <p>Musisz zaprogramować taśmę produkcyjną, która sprawdza 10 kolejnych robotów (od numeru 1 do 10).</p>
+    </div>
+
+    <div class="box">
+        <h2>Misja 2: Kosmiczne Menu Gry (Pętla + SWITCH)</h2>
+        <p>Przejdź przez kolejne dni tygodnia (od 1 do 7) i zaplanuj trening kosmonauty.</p>
+    </div>
+
+    <div class="box">
+        <h2>Misja 3: Awaryjne Lądowanie (Pętla + IF + BREAK)</h2>
+        <p>Rakieta traci paliwo! Odliczaj poziom energii od 10 w dół. Na końcu może być wybuch!</p>
+    </div>
+
+    <script>
+        // Zadanie 1
+        // Napisz pętlę 'for', która policzy od 1 do 10 (to będą numery robotów).
+        // Wewnątrz pętli użyj if, aby sprawdzić numer robota:
+        // - Jeśli numer robota jest PARZYSTY : wyświetl w konsoli: "Robot nr [numer] przeszedł testy pomyślnie!"
+        // - Jeśli numer robota jest NIEPARZYSTY : wyświetl w konsoli: "Robot nr [numer] wymaga naprawy!"
+
+        for(let i = 1; i<=10; i++){
+            if(i % 2 == 0){
+                console.log("Robot nr " + i + " przeszedł testy pomyślnie!");
+            } else {
+                console.log("Robot nr " + i + " wymaga naprawy!");
+            }
+        }
+        
+        // Zadanie 2
+        // Napisz pętlę 'for', która będzie odliczać dni tygodnia od 1 do 7.
+        // Wewnątrz pętli stwórz instrukcję 'switch', która sprawdzi aktualny dzień:
+        //  - Dla dnia 1, 3 i 5 wypisz: "Dzień [numer]: Trening na symulatorze lotu!"
+        //  - Dla dnia 2 i 4 wypisz: "Dzień [numer]: Ćwiczenia z bronią w razie UFO!"
+        //  - Dla dnia 6 i 7 wypisz: "Dzień [numer]: Weekend! Czas na grilla"
+
+        for(let j = 1; j<=7; j++){
+            switch(j){
+                case 1:
+                case 3:
+                case 5:
+                    console.log("Dzień " + j + ": Trening na symulatorze lotu!");
+            break;
+                case 2:
+                case 4:
+                    console.log("Dzień " + j + ": Ćwiczenia z gronią w razie UFO!");
+            break;
+                case 6:
+                case 7:
+                    console.log("Dzień " + j + ": Weekend! Czas na grilla");
+            break;
+        }
+    }
+ 
+        // Zadanie 3
+        // Stwórz zmienną 'paliwo' i ustaw jej wartość początkową na 10.
+        // Napisz pętlę 'while', która działa dopóki 'paliwo' jest większe od 0.
+        // W każdym kroku pętli:
+        // 1. Wypisz w konsoli: "Poziom paliwa: [wartość]"
+        // 2. Zmniejsz paliwo o 1
+        // 3. Dodaj warunek 'if': Jeśli paliwo spadnie DOKŁADNIE do poziomu 3 : wypisz komunikat: "ALARM! BRAK PALIWA"
+        // zatrzymaj pętlę za pomocą 'break'.
+
+        let paliwo = 10;
+
+        while(paliwo > 0){
+            console.log("Poziom paliwa: " + paliwo);
+            paliwo--;
+            if(paliwo == 3){
+                console.log("ALARM! BRAK PALIWA");
+                break;
+            }
+        }
+
+    </script>
+</body>
+</html>

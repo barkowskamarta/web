@@ -1,0 +1,67 @@
+- Tytuł strony widoczny na karcie przeglądarki: „Rozgrywki futbolowe”
+- Arkusz stylów w pliku o nazwie styl.css 
+- Prawidłowo połączony CSS z kodem strony HTML
+
+Podział strony na bloki: 
+- baner z nagłówkiem i zdjęciem, 
+- poniżej bloki informacyjne o wynikach,
+- poniżej blok główny,
+- wewnątrz bloki lewy i prawy,
+Podział zrealizowany za pomocą znaczników sekcji,
+
+Zawartość bloku banera: 
+- Nagłówek pierwszego stopnia o treści „Światowe rozgrywki piłkarskie” 
+- Obraz z tekstem alternatywnym o treści: „boisko” 
+
+Zawartość bloku mecze:
+- 5 elementów blokowych
+- nagłówki 3 stopnia dla drużyn
+
+Zawartość bloku głównego: 
+- nagłówek drugiego stopnia o treści: „Reprezentacja Polski”
+
+Zawartość bloku lewego:
+- paragraf (akapit) o treści: „Podaj pozycję zawodników (1-bramkarze, 2-obrońcy, 3-pomocnicy, 4-napastnicy):” 
+
+Zawartość bloku prawego: 
+- obraz zad1.png z tekstem alternatywnym o treści: „piłkarz”
+- paragraf (akapit) o treści: „Autor: ”, 
+
+
+Styl CSS witryny internetowej:
+
+Dla bloku banera: 
+- biały kolor czcionki, 
+- wyrównanie tekstu do środka, 
+- wysokość 370 px
+
+Dla pojedynczego bloku z informacją o rozgrywkach: 
+- biały kolor czcionki, 
+- wyrównanie tekstu do środka, 
+- szerokość 200 px, 
+- marginesy zewnętrzne 10 px, 
+- obramowanie: 1 px, linia ciągła, kolor czarny, 
+- zaokrąglenie rogów obramowania 10 px 
+*W momencie najechania kursorem na pojedynczy blok z informacją o rozgrywkach, kolor jego ramki zmienia się na biały
+
+Dla bloku głównego: 
+- kolor tła WhiteSmoke, 
+- wysokość 50 px
+
+Dla bloku lewego: 
+- kolor tła WhiteSmoke, 
+- szerokość 70%, 
+- wysokość 230 px
+
+Dla bloku prawego: 
+- kolor tła WhiteSmoke, 
+- szerokość 30%, 
+- wysokość 230 px, 
+- wyrównanie tekstu do prawej strony
+
+Dla znacznika nagłówka drugiego stopnia: 
+- wyrównanie tekstu do środka, 
+- odległość między literami 7 px, 
+
+Plik zad1.png, należy przeskalować z zachowaniem proporcji tak, aby jego szerokość wynosiła dokładnie 150 px. Należy zachować przezroczystość obrazu.
+
