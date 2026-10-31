@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruletka</title>
+    <link rel="stylesheet" href="ruletka.css">
+    <script src="ruletka.js"></script>
+</head>
+<body>
+    <main class="kasyno">
+        <header class="naglowek">
+            <span class="znak">♠</span>
+            <p class="nadtytul">STÓŁ DO GRY</p>
+            <h1>Ruletka</h1>
+            <p class="opis">Postaw żetony i sprawdź swoje szczęście</p>
+        </header>
+
+        <section class="zaklad">
+            <fieldset>
+                <legend>Wybierz kolor</legend>
+                <div class="opcje kolory">
+                    <input type="radio" name="kolor" value="czerwone" id="czerwone">
+                    <label for="czerwone">Czerwone</label>
+                    <input type="radio" name="kolor" value="czarne" id="czarne">
+                    <label for="czarne">Czarne</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Wybierz dwunastkę</legend>
+                <div class="opcje">
+                    <input type="radio" name="dwunastki" value="1" id="pierwsza">
+                    <label for="pierwsza">1–12</label>
+                    <input type="radio" name="dwunastki" value="2" id="druga">
+                    <label for="druga">13–24</label>
+                    <input type="radio" name="dwunastki" value="3" id="trzecia">
+                    <label for="trzecia">25–36</label>
+                </div>
+            </fieldset>
+
+            <div class="stawki">
+                <label for="kwotaKoloru">Stawka na kolor</label>
+                <input type="text" id="kwotaKoloru" placeholder="Wpisz kwotę">
+                <label for="kwotaDwunastki">Stawka na dwunastkę</label>
+                <input type="text" id="kwotaDwunastki" placeholder="Wpisz kwotę">
+            </div>
+
+            <button id="przycisk">Zakręć ruletką <span aria-hidden="true">→</span></button>
+            <h3 id="wynik" aria-live="polite"></h3>
+        </section>
+    </main>
+</body>
+</html>

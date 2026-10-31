@@ -1,0 +1,222 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 32px 16px;
+    display: grid;
+    place-items: center;
+    color: #f7f1df;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background:
+        radial-gradient(ellipse at 50% 35%, rgba(35, 108, 72, 0.45), transparent 55%),
+        linear-gradient(135deg, #08251d, #103d2d 52%, #071d18);
+}
+
+.kasyno {
+    width: min(100%, 480px);
+    overflow: hidden;
+    border: 1px solid rgba(218, 183, 103, 0.55);
+    border-radius: 22px;
+    background: #10251e;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45), 0 0 35px rgba(210, 170, 82, 0.1);
+}
+
+.naglowek {
+    padding: 30px 28px 25px;
+    text-align: center;
+    border-bottom: 1px solid rgba(218, 183, 103, 0.25);
+    background: linear-gradient(145deg, rgba(28, 79, 56, 0.9), rgba(16, 37, 30, 0.5));
+}
+
+.znak {
+    display: inline-grid;
+    width: 52px;
+    height: 52px;
+    place-items: center;
+    border: 1px solid #d6b66e;
+    border-radius: 50%;
+    color: #e4c87e;
+    font-size: 1.7rem;
+}
+
+.nadtytul {
+    margin: 14px 0 4px;
+    color: #d6b66e;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+}
+
+h1 {
+    margin: 0;
+    color: #fff8e7;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.2rem, 9vw, 3rem);
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+.opis {
+    margin: 8px 0 0;
+    color: #b7c5b9;
+    font-size: 0.9rem;
+}
+
+.zaklad {
+    padding: 25px 28px 28px;
+}
+
+fieldset {
+    min-width: 0;
+    margin: 0 0 22px;
+    padding: 0;
+    border: 0;
+}
+
+legend,
+.stawki label {
+    margin-bottom: 10px;
+    color: #e4d7b4;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.opcje {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.kolory {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.opcje input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+.opcje label {
+    display: grid;
+    min-height: 44px;
+    place-items: center;
+    border: 1px solid rgba(218, 183, 103, 0.3);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.035);
+    color: #e9e3d3;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.18s, border-color 0.18s, transform 0.18s;
+}
+
+.opcje label[for="czerwone"] {
+    border-color: rgba(203, 70, 65, 0.55);
+}
+
+.opcje label[for="czarne"] {
+    border-color: rgba(180, 187, 176, 0.35);
+}
+
+.opcje input:checked + label {
+    border-color: #e2c36e;
+    background: rgba(214, 182, 110, 0.16);
+    box-shadow: inset 0 0 0 1px rgba(214, 182, 110, 0.18);
+    color: #ffe6a3;
+}
+
+.opcje input:focus-visible + label {
+    outline: 2px solid #f0d98f;
+    outline-offset: 3px;
+}
+
+.opcje label:hover {
+    transform: translateY(-1px);
+}
+
+.stawki {
+    display: grid;
+    gap: 8px;
+    margin: 2px 0 22px;
+}
+
+.stawki label:not(:first-child) {
+    margin-top: 7px;
+}
+
+.stawki input {
+    width: 100%;
+    min-height: 46px;
+    padding: 0 13px;
+    border: 1px solid rgba(218, 183, 103, 0.3);
+    border-radius: 9px;
+    outline: none;
+    background: #0a1c17;
+    color: #fff8e7;
+    font: inherit;
+    transition: border-color 0.18s, box-shadow 0.18s;
+}
+
+.stawki input::placeholder {
+    color: #829287;
+}
+
+.stawki input:focus {
+    border-color: #d6b66e;
+    box-shadow: 0 0 0 3px rgba(214, 182, 110, 0.12);
+}
+
+button {
+    display: flex;
+    width: 100%;
+    min-height: 50px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 0;
+    border-radius: 9px;
+    background: linear-gradient(135deg, #e2c36e, #c99b45);
+    color: #17241b;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 750;
+    box-shadow: 0 5px 16px rgba(201, 155, 69, 0.18);
+    transition: filter 0.18s, transform 0.18s;
+}
+
+button:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+button:focus-visible {
+    outline: 2px solid #fff3c8;
+    outline-offset: 3px;
+}
+
+#wynik {
+    min-height: 1.5em;
+    margin: 18px 0 0;
+    color: #e7cd84;
+    text-align: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+@media (max-width: 420px) {
+    .naglowek {
+        padding: 25px 20px 21px;
+    }
+
+    .zaklad {
+        padding: 22px 20px 24px;
+    }
+}

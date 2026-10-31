@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spóźnienia</title>
+    <link rel="stylesheet" href="czas.css">
+    <script src="czas.js"></script>
+</head>
+<body>
+    <main class="karta">
+        <header class="naglowek">
+            <span class="ikona" aria-hidden="true">◷</span>
+            <p class="nadtytul">PLAN DNIA</p>
+            <h1>Sprawdź godzinę</h1>
+            <p class="opis">Wybierz dzień i wpisz godzinę, aby sprawdzić, czy zdążysz na czas.</p>
+        </header>
+
+        <form action="#">
+            <div class="pole">
+                <label for="godzina">Godzina</label>
+                <input type="number" id="godzina" min="0" max="23" placeholder="np. 8">
+            </div>
+
+            <div class="pole">
+                <label for="minuty">Minuty</label>
+                <input type="number" id="minuty" min="0" max="59" placeholder="np. 15">
+            </div>
+
+            <div class="pole">
+                <label for="lista">Dzień tygodnia</label>
+                <select id="lista">
+                    <option value="poniedzialek">Poniedziałek</option>
+                    <option value="wtorek">Wtorek</option>
+                    <option value="sroda">Środa</option>
+                    <option value="czwartek">Czwartek</option>
+                    <option value="piatek">Piątek</option>
+                    <option value="sobota">Sobota</option>
+                    <option value="niedziela">Niedziela</option>
+                </select>
+            </div>
+
+            <button id="przycisk">Sprawdź punktualność <span aria-hidden="true">→</span></button>
+
+            <h3 id="spoznienie" aria-live="polite"></h3>
+        </form>
+    </main>
+</body>
+</html>
