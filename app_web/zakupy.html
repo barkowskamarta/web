@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista zakupów</title>
+    <link rel="stylesheet" href="zakupy.css">
     <script src="zakupy.js"></script>
 </head>
 <body>
-    Dodaj do/Usuń z listy: <input type="text" id="dodaj">
+    <main class="karta">
+        <h1>Lista zakupów</h1>
 
-    <button id="przycisk">Dodaj</button>
-    <button id="przycisk2">Usuń</button>
+        <label for="dodaj">Dodaj do / usuń z listy:</label>
+        <div class="panel">
+            <input type="text" id="dodaj" placeholder="np. mleko">
+            <button id="przycisk">Dodaj</button>
+            <button id="przycisk2" class="usun">Usuń</button>
+        </div>
 
-    <ul id="lista"></ul>
+        <ul id="lista"></ul>
+    </main>
 </body>
 </html>
